@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>mrBin</title>
+</head>
+<body>
+<p>text1</p>
+<p>text2</p>
+<p>text3</p>
+
+let p = document.querySelectorAll('p');
+
+for (let pp of p) {
+ 
+    let text = pp.innerText;
+    pp.innerText = '';
+    let span = document.createElement('span');
+    span.innerText = text;
+    pp.appendChild(span);
+    let a = document.createElement('a');
+    a.href = ' '; a.textContent = 'press me';
+    pp.appendChild(a);
+    a.addEventListener('click', function(e) {
+    span.style.textDecoration = 'line-through solid blue'; 
+        a.remove();
+        e.preventDefault();
+    });
+}
+</body>
+</html>
